@@ -73,6 +73,9 @@ class Calculator {
     }
     
     func avg(_ args: [Int]) -> Int {
+        if args.isEmpty {
+            return 0
+        }
         return add(args) / count(args)
     }
     
@@ -100,7 +103,6 @@ class Calculator {
     }
     
     func subtract(lhs: [String: Int], rhs: [String: Int]) -> [String: Int] {
-    func subtract(lhs: [String: Int], rhs: [String: Int]) -> [String: Int] {
         let x = (lhs["x"] ?? 0) - (rhs["x"] ?? 0)
         let y = (lhs["y"] ?? 0) - (rhs["y"] ?? 0)
         
@@ -122,7 +124,15 @@ let calc = Calculator()
 //: Keep in mind that writing new tests may reveal ambiguity in the specification above--if that's the case, document the ambiguity, declare what you think *should* happen, and write the test to test for it.
 
 // ===== Your tests go here
+calc.add(lhs: -2, rhs: -3) == -5
+calc.multiply(lhs: -2, rhs: 3) == -6
 
+calc.add([]) == 0
+calc.multiply([]) == 1
+calc.avg([]) == 0
+
+calc.add(lhs: ["y": 7], rhs: ["y": 2]) == ["x": 0, "y": 9]
+calc.subtract(lhs: ["x": 7], rhs: ["x": 10]) == ["x": -3, "y": 0]
 //: ---
 //: ## Test code block
 //: Do not modify the code in this section
