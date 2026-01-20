@@ -56,6 +56,26 @@ class Calculator {
         return result
     }
     
+    func multiply(_ args: [Int]) -> Int {
+        var result = 1
+        for n in args {
+            result *= n
+        }
+        return result
+    }
+    
+    func count(_ args: [Int]) -> Int {
+        var count = 0
+        for n in args {
+            count += 1
+        }
+        return count
+    }
+    
+    func avg(_ args: [Int]) -> Int {
+        return add(args) / count(args)
+    }
+    
     
 }
 
