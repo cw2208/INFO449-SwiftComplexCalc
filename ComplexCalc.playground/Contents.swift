@@ -44,6 +44,18 @@ class Calculator {
         return lhs / rhs
     }
     
+    func mathOp(lhs: Int, rhs: Int, op: (Int, Int) -> Int) -> Int {
+            return op(lhs, rhs)
+    }
+    
+    func add(_ args: [Int]) -> Int {
+        var result = 0
+        for n in args {
+            result += n
+        }
+        return result
+    }
+    
     
 }
 
